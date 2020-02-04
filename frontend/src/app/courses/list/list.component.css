@@ -1,0 +1,53 @@
+.courses-list {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.courses-list h1 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size: 40px;
+    padding-left: 15px;
+}
+.course-item {
+    width: calc(33.33% - 30px);
+    display: inline-block;
+    margin: 0 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.course-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.course-info {
+    padding: 20px;
+}
+.course-info h4 {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+}
+.course-info p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.course-info a {
+    display: block;
+    width: 35%;
+    margin: 40px auto 0 auto;
+    padding: 10px 0;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: 'Russo One';
+    font-size: 22px;
+    text-align: center;
+    text-decoration: none;
+}
+.course-info a:hover {
+    background-color: #00cd8c;
+    color: #FFF;
+}
