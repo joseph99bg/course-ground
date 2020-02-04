@@ -1,23 +1,33 @@
 <header>
     <div class="top-bar green-back">
         <ul class="top-nav">
-            <li>Login</li>
-            <li>Register</li>
-            <li><fa-icon [icon]="faUser"></fa-icon></li>
-            <li><fa-icon [icon]="faSignOutAlt"></fa-icon></li>
+            <li>
+                <a routerLink="/login">Login</a>
+            </li>
+            <li>
+                <a routerLink="/register">Register</a>
+            </li>
+            <li>
+                <a><fa-icon [icon]="faUser"></fa-icon></a>
+            </li>
+            <li>
+                <a><fa-icon [icon]="faSignOutAlt"></fa-icon></a>
+            </li>
         </ul>
     </div>
     <div class="main-header">
         <div class="logo-holder">
-            <img src="/assets/logo.png" alt="Course Ground">
+            <a routerLink="/">
+                <img src="/assets/logo.png" alt="Course Ground">
+            </a>
         </div>
         <div class="navigation">
             <ul class="nav">
                 <li>
-                    <a href="">Home</a>
+                    <a routerLink="/">Home</a>
                 </li>
                 <li>
-                    <a href="">About</a>
+                    <a routerLink="/about">About</a>
                 </li>
                 <li>
                     <a href="">My Courses</a>
@@ -29,7 +39,7 @@
                     <a href="">Add Course</a>
                 </li>
                 <li>
-                    <a href="">Contact</a>
+                    <a routerLink="/contact">Contact</a>
                 </li>
             </ul>
         </div>

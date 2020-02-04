@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { CoursesModule } from './courses/courses.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserModule } from './user/user.module';
+import { StaticModule } from './static/static.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
     CoreModule,
     CoursesModule,
+    UserModule,
+    StaticModule,
     HttpClientModule,
     AppRoutingModule
   ],

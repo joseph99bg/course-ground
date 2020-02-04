@@ -14,12 +14,12 @@ module.exports = {
 		    	.then(courses => res.send(courses))
 		    	.catch(next);
 		},
-		// one: (req, res, next) => {
-		// 	const id = req.params.id;
-		//   	models.Post.find({ _id: id }).populate('author')
-		//     	.then(post => res.send(post))
-		//     	.catch(next);
-		// },
+		one: (req, res, next) => {
+			const id = req.params.id;
+		  	models.Course.find({ _id: id })//.populate('author')
+		    	.then(course => res.send(course[0]))
+		    	.catch(next);
+		},
 		// authorPosts: (req, res, next) => {
 		// 	const userId = req.user._id;
 		// 	models.Post.find({ author: userId }).populate('author').sort({ createdAt: -1 })

@@ -1,0 +1,8 @@
+<app-loader *ngIf="!course"></app-loader>
+<div class="course-details" *ngIf="course">
+    <img [src]="course.image" alt="">
+    <div class="course-text">
+        <h1>{{course.title}}</h1>
+        <p>{{course.description}}</p>
+    </div>
+</div>

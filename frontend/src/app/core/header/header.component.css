@@ -1,19 +1,23 @@
 header {
     box-shadow: 0 0 10px rgba(0,0,0,.3);
 }
-.top-bar {
-    color: #FFF;
-}
 ul.top-nav {
     margin: 0;
     text-align: right;
-    font-size: 20px;
-    font-family: 'Ubuntu';
 }
 .top-nav li {
     list-style: none;
     display: inline-block;
     margin: 7px 10px;
+}
+.top-nav li a {
+    font-family: 'Ubuntu';
+    font-size: 20px;
+    color: #FFF;
+    text-decoration: none;
+}
+.top-nav li a:hover {
+    text-decoration: underline;
 }
 .main-header {
     max-width: 100%;
@@ -40,11 +44,17 @@ ul.nav {
 ul.nav li {
     list-style: none;
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 5px;
 }
 ul.nav li a {
     font-size: 20px;
     font-family: 'Ubuntu';
     color: #333;
     text-decoration: none;
+    padding: 10px 15px;
+    border: 2px solid #FFF;
+}
+ul.nav li a:hover {
+    color: #00cd8c;
+    border-bottom: 2px solid #00cd8c;
 }

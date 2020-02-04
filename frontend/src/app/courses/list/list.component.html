@@ -1,5 +1,5 @@
 <div class="courses-list" *ngIf="courses">
-    <h1 class="purple-color">Courses</h1>
+    <h1 class="page-title">Courses</h1>
     <div *ngFor="let course of courses" class="course-item">
         <img [src]="course.image" alt="">
         <div class="course-info">
@@ -7,7 +7,7 @@
             <p>
                 {{course.description}}
             </p>
-            <a class="green-border green-color" href="#">Details</a>
+            <a class="green-border green-color" (click)="selectCourseHandler(course._id)">Details</a>
         </div>
     </div>
 </div>

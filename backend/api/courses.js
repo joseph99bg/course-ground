@@ -3,7 +3,7 @@ const auth = require('../utils/auth');
 const controllers = require('../controllers');
 
 router.get('/', controllers.Course.get.all);
-// router.get('/details/:id', controllers.Post.get.one);
+router.get('/:id', controllers.Course.get.one);
 // router.get('/my-posts', auth(), controllers.Post.get.authorPosts);
 
 // router.post('/create', auth(), controllers.Post.post.create);

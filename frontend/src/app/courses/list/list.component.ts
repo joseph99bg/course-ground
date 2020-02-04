@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICourse } from 'src/app/shared/interfaces/course';
 import { CoursesService } from 'src/app/courses.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -13,9 +13,16 @@ export class ListComponent implements OnInit {
     return this.coursesService.courses;
   }
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(
+    private coursesService: CoursesService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.coursesService.loadAllCourses();
+  }
+
+  selectCourseHandler(courseId: string) {
+    this.router.navigate(['/course', courseId]);
   }
 }
