@@ -25,3 +25,8 @@
     color: #FFF;
     margin-bottom: 0;
 }
+.course-error {
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}

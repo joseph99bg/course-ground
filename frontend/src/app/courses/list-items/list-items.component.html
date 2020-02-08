@@ -1,0 +1,10 @@
+<div *ngFor="let course of courses" class="course-item">
+    <img [src]="course.image" alt="">
+    <div class="course-info">
+        <h4 class="green-color">{{course.title}}</h4>
+        <p>
+            {{course.description}}
+        </p>
+        <a class="green-border green-color" [routerLink]="['/course', course._id]">Details</a>
+    </div>
+</div>

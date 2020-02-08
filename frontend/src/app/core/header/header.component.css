@@ -16,6 +16,9 @@ ul.top-nav {
     color: #FFF;
     text-decoration: none;
 }
+.top-nav li a.active {
+    color: #333;
+}
 .top-nav li a:hover {
     text-decoration: underline;
 }
@@ -54,7 +57,8 @@ ul.nav li a {
     padding: 10px 15px;
     border: 2px solid #FFF;
 }
-ul.nav li a:hover {
+ul.nav li a:hover,
+ul.nav li a.active {
     color: #00cd8c;
     border-bottom: 2px solid #00cd8c;
 }

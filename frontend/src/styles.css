@@ -39,6 +39,9 @@ h1, h2, h3, h4, h5, h6 {
 .gray-border {
     border-color: #333;
 }
+.text-center {
+    text-align: center;
+}
 /* Common elements styles */
 .main-content {
     max-width: 1500px;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoursesService } from 'src/app/courses.service';
+import { CoursesService } from 'src/app/courses/courses.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,15 +14,10 @@ export class ListComponent implements OnInit {
   }
 
   constructor(
-    private coursesService: CoursesService,
-    private router: Router
+    private coursesService: CoursesService
   ) { }
 
   ngOnInit() {
     this.coursesService.loadAllCourses();
-  }
-
-  selectCourseHandler(courseId: string) {
-    this.router.navigate(['/course', courseId]);
   }
 }

@@ -1,8 +1,11 @@
-<app-loader *ngIf="!course"></app-loader>
+<app-loader *ngIf="!course && !error"></app-loader>
 <div class="course-details" *ngIf="course">
     <img [src]="course.image" alt="">
     <div class="course-text">
         <h1>{{course.title}}</h1>
         <p>{{course.description}}</p>
     </div>
+</div>
+<div class="course-error" *ngIf="error">
+    <h2 class="course-error purple-color">No such course!</h2>
 </div>

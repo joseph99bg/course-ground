@@ -10,10 +10,12 @@ import { CoursesModule } from './courses/courses.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserModule } from './user/user.module';
 import { StaticModule } from './static/static.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

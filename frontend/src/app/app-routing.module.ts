@@ -6,33 +6,18 @@ import { CourseDetailsComponent } from './courses/course-details/course-details.
 import { AboutComponent } from './static/about/about.component';
 import { ContactComponent } from './static/contact/contact.component';
 import { RegisterComponent } from './user/register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: ListComponent
+    redirectTo: '/course/list'
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'course/:id',
-    component: CourseDetailsComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
-    path: 'contact',
-    component: ContactComponent
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
