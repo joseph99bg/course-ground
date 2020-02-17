@@ -15,6 +15,7 @@ ul.top-nav {
     font-size: 20px;
     color: #FFF;
     text-decoration: none;
+    cursor: pointer;
 }
 .top-nav li a.active {
     color: #333;

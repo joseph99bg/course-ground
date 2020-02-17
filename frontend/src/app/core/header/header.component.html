@@ -1,17 +1,17 @@
 <header>
     <div class="top-bar green-back">
         <ul class="top-nav">
-            <li>
+            <li *ngIf="!isLogged">
                 <a routerLink="/user/login" routerLinkActive="active">Login</a>
             </li>
-            <li>
+            <li *ngIf="!isLogged">
                 <a routerLink="/user/register" routerLinkActive="active">Register</a>
             </li>
-            <li>
+            <li *ngIf="isLogged">
                 <a><fa-icon [icon]="faUser"></fa-icon></a>
             </li>
-            <li>
-                <a><fa-icon [icon]="faSignOutAlt"></fa-icon></a>
+            <li *ngIf="isLogged">
+                <a (click)="logout()"><fa-icon [icon]="faSignOutAlt"></fa-icon></a>
             </li>
         </ul>
     </div>
@@ -29,14 +29,14 @@
                 <li>
                     <a routerLink="/about" routerLinkActive="active">About</a>
                 </li>
-                <li>
-                    <a href="">My Courses</a>
+                <li *ngIf="isLogged">
+                    <a routerLink="/course/my-courses" routerLinkActive="active">My Courses</a>
                 </li>
-                <li>
+                <li *ngIf="isLogged">
                     <a href="">Courses Enrolled</a>
                 </li>
-                <li>
-                    <a href="">Add Course</a>
+                <li *ngIf="isLogged">
+                    <a routerLink="/course/add" routerLinkActive="active">Add Course</a>
                 </li>
                 <li>
                     <a routerLink="/contact" routerLinkActive="active">Contact</a>

@@ -1,62 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700&display=swap');
-
-* {
-    box-sizing: border-box;
-}
-body {
-    margin: 0;
-    font-family: 'Ubuntu';
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Russo One';
-}
-/* Colors and styles */
-.green-color {
-    color: #00cd8c;
-}
-.green-back {
-    background-color: #00cd8c;
-}
-.green-border {
-    border-color: #00cd8c;
-}
-.purple-color {
-    color: #716ef9;
-}
-.purple-back {
-    background-color: #716ef9;
-}
-.purple-border {
-    border-color: #716ef9;
-}
-.gray-color {
-    color: #333;
-}
-.gray-back {
-    background-color: #333;
-}
-.gray-border {
-    border-color: #333;
-}
-.text-center {
-    text-align: center;
-}
-/* Common elements styles */
-.main-content {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 40px 0;
-    min-height: calc(100vh - 195px);
-}
-.page-title {
-    color: #716ef9;
-    margin-top: 0;
-    margin-bottom: 40px;
-    font-size: 40px;
-    padding-left: 15px;
-}
-/* Forms */
 .form-page {
     text-align: center;
 }
@@ -75,8 +16,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
     margin-bottom: 20px;
 }
-.field-holder input,
-.field-holder textarea {
+.field-holder input {
     display: block;
     width: 100%;
     border: 0;
@@ -89,16 +29,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #333;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
-.field-holder textarea {
-    height: 250px;
-    text-align: left;
-}
-.field-holder input.ng-invalid.ng-touched,
-.field-holder textarea.ng-invalid.ng-touched {
+.field-holder input.ng-invalid.ng-touched {
     box-shadow: 0 0 10px #eb3333;
 }
-.field-holder input:focus,
-.field-holder textarea:focus {
+.field-holder input:focus {
     outline: none;
 }
 .input-error {

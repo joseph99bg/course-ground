@@ -3,14 +3,7 @@ const models = require('../models');
 module.exports = {
 	get: {
 		all: (req, res, next) => {
-			// const limit = +req.query.limit;
-			// if (limit) {
-		 //      	models.Post.find().populate('author').sort({ createdAt: -1 }).limit(limit)
-		 //        	.then(posts => res.send(posts))
-		 //        	.catch(next);
-		 //      	return;
-		 //    }
-		  	models.Course.find()/*.populate('author').sort({ createdAt: -1 })*/
+		  	models.Course.find().populate('author').sort({ createdAt: -1 })
 		    	.then(courses => res.send(courses))
 		    	.catch(next);
 		},
@@ -20,42 +13,41 @@ module.exports = {
 		    	.then(course => res.send(course[0]))
 		    	.catch(next);
 		},
-		// authorPosts: (req, res, next) => {
-		// 	const userId = req.user._id;
-		// 	models.Post.find({ author: userId }).populate('author').sort({ createdAt: -1 })
-		// 		.then(posts => res.send(posts))
-		//     	.catch(next);
-		// }
+		authorPosts: (req, res, next) => {
+			const { userId } = req.body;
+			models.Course.find({ author: userId }).populate('author').sort({ createdAt: -1 })
+				.then(courses => res.send(courses))
+		    	.catch(next);
+		}
 	},
 	post: {
-		// create: (req, res, next) => {
-		// 	const { title, content, image } = req.body;
-		// 	const { _id } = req.user;
+		create: (req, res, next) => {
+			const { title, description, image, userId } = req.body;
 
-		// 	models.Post.create({ title, content, image, author: _id })
-		// 	    .then((createdPost) => {
-		// 	    	return Promise.all([
-		// 	          	models.User.updateOne({ _id }, { $push: { posts: createdPost } }),
-		// 	          	models.Post.findOne({ _id: createdPost._id })
-		// 	        ]);
-		// 	    })
-		// 	    .then(([modifiedObj, postObj]) => {
-		// 	        res.send(postObj);
-		// 	    })
-		// 	    .catch(next);
-		// },
-		// edit: (req, res, next) => {
-		// 	const id = req.params.id;
-		// 	const { title, content, image } = req.body;
-		// 	models.Post.updateOne({ _id: id }, { title, content, image })
-		// 		.then(post => res.send(post))
-		// 		.catch(next);
-		// },
-		// delete: (req, res, next) => {
-		// 	const id = req.params.id;
-		// 	models.Post.deleteOne({ _id: id })
-		// 		.then((post) => res.send(post))
-		// 	    .catch(next);
-		// }
+			models.Course.create({ title, description, image, author: userId })
+			    .then((createdCourse) => {
+			    	return Promise.all([
+			          	models.User.updateOne({ _id: userId }, { $push: { courses: createdCourse } }),
+			          	models.Course.findOne({ _id: createdCourse._id })
+			        ]);
+			    })
+			    .then(([modifiedObj, courseObj]) => {
+			        res.send(courseObj);
+			    })
+			    .catch(next);
+		},
+		edit: (req, res, next) => {
+			const courseId = req.params.id;
+			const { title, description, image } = req.body;
+			models.Course.updateOne({ _id: courseId }, { title, description, image })
+				.then(course => res.send(course))
+				.catch(next);
+		},
+		delete: (req, res, next) => {
+			const courseId = req.params.id;
+			models.Course.deleteOne({ _id: courseId })
+				.then((course) => res.send(course))
+			    .catch(next);
+		}
 	}
 }

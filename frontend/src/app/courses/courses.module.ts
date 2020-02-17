@@ -5,17 +5,23 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { CoreModule } from '../core/core.module';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { RouterModule } from '@angular/router';
-import { ListItemComponent } from './list-items/list-items.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { AddComponent } from './add/add.component';
+import { FormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
 
 
 
 @NgModule({
-  declarations: [ListComponent, CourseDetailsComponent, ListItemComponent],
+  declarations: [ListComponent, CourseDetailsComponent, AddComponent, EditComponent],
   imports: [
     CommonModule,
     CoreModule,
     CoursesRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   exports: [
     ListComponent

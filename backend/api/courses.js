@@ -4,10 +4,10 @@ const controllers = require('../controllers');
 
 router.get('/', controllers.Course.get.all);
 router.get('/:id', controllers.Course.get.one);
-// router.get('/my-posts', auth(), controllers.Post.get.authorPosts);
+router.post('/my-posts', controllers.Course.get.authorPosts);
 
-// router.post('/create', auth(), controllers.Post.post.create);
-// router.put('/edit/:id', auth(), controllers.Post.post.edit);
-// router.delete('/delete/:id', auth(), controllers.Post.post.delete);
+router.post('/create', controllers.Course.post.create);
+router.put('/edit/:id', controllers.Course.post.edit);
+router.delete('/delete/:id', controllers.Course.post.delete);
 
 module.exports = router;

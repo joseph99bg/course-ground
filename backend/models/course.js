@@ -14,15 +14,15 @@ var courseSchema = new Schema({
   image: {
     type: String
   },
-  // author: {
-  //   type: ObjectId,
-  //   ref: "User"
-  // },
-  // createdAt: {
-  //   type: Date,
-  //   default: new Date()
-  // },
-  // comments: [{ type: ObjectId, ref: 'Comment' }],
+  author: {
+    type: ObjectId,
+    ref: "User"
+  },
+  createdAt: {
+    type: Date,
+    default: new Date()
+  },
+  users: [{ type: ObjectId, ref: 'User' }],
 });
 
 module.exports = mongoose.model('Course', courseSchema)

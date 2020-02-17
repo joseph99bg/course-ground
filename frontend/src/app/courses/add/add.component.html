@@ -1,0 +1,31 @@
+<div class="form-page">
+  <h1 class="page-title">Add Course</h1>
+  <form #addCourseForm="ngForm" (ngSubmit)="addCourseHandler(addCourseForm.value)">
+      <div class="field-holder">
+          <label for="title" class="grey-color">Title</label>
+          <input type="text" #titleInput="ngModel" ngModel name="title" id="title" required minlength="6">
+          <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)">
+              <div *ngIf="titleInput.errors.required && titleInput.touched" class="input-error">Please enter a title</div>
+              <div *ngIf="titleInput.errors.minlength && titleInput.touched" class="input-error">Title should be at least 6 chars long</div>
+          </div>
+      </div>
+      <div class="field-holder">
+          <label for="description" class="grey-color">Description</label>
+          <textarea #descriptionInput="ngModel" ngModel name="description" id="description" required minlength="6"></textarea>
+          <div *ngIf="descriptionInput.invalid && (descriptionInput.dirty || descriptionInput.touched)">
+              <div *ngIf="descriptionInput.errors.required && descriptionInput.touched" class="input-error">Please enter a description</div>
+              <div *ngIf="descriptionInput.errors.minlength && descriptionInput.touched" class="input-error">description should be at least 6 chars long</div>
+          </div>
+      </div>
+      <div class="field-holder">
+          <label for="image" class="grey-color">Image</label>
+          <input type="text" #imageInput="ngModel" ngModel name="image" id="image" required>
+          <div *ngIf="imageInput.invalid && (imageInput.dirty || imageInput.touched)">
+              <div *ngIf="imageInput.errors.required && imageInput.touched" class="input-error">Please enter an image url</div>
+          </div>
+      </div>
+      <div class="submit-btn-holder">
+          <button [disabled]="addCourseForm.invalid">Add Course</button>
+      </div>
+  </form>
+</div>

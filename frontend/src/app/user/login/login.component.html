@@ -1,3 +1,24 @@
-<div class="login-page">
+<div class="form-page">
     <h1 class="page-title">Login</h1>
+    <form #loginForm="ngForm" (ngSubmit)="loginHandler(loginForm.value)">
+        <div class="field-holder">
+            <label for="username" class="grey-color">Username</label>
+            <input type="text" #usernameInput="ngModel" ngModel name="username" id="username" required minlength="6">
+            <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
+                <div *ngIf="usernameInput.errors.required && usernameInput.touched" class="input-error">Please enter an username</div>
+                <div *ngIf="usernameInput.errors.minlength && usernameInput.touched" class="input-error">Username should be at least 6 chars long</div>
+            </div>
+        </div>
+        <div class="field-holder">
+            <label for="password" class="grey-color">Password</label>
+            <input type="password" #passwordInput="ngModel" ngModel name="password" id="password" required minlength="6">
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+                <div *ngIf="passwordInput.errors.required && passwordInput.touched" class="input-error">Please enter a password</div>
+                <div *ngIf="passwordInput.errors.minlength && passwordInput.touched" class="input-error">Password should be at least 6 chars long</div>
+            </div>
+        </div>
+        <div class="submit-btn-holder">
+            <button [disabled]="loginForm.invalid">Login</button>
+        </div>
+    </form>
 </div>

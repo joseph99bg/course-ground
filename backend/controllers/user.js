@@ -15,36 +15,38 @@ module.exports = {
     },
   },
 	register: (req, res, next) => {
-  		const { username, email, password } = req.body;
-  		models.User.create({ username, email, password })
-		    .then((user) => res.send(user))
-		    .catch(err => {
-		    	if (err.name == 'MongoError') {
-		    		res.send('User with this email is already registered!')
-		    	}
-		    });
+  	const { username, email, password } = req.body;
+  	models.User.create({ username, email, password })
+		  .then((user) => res.send(user))
+		  .catch(err => {
+        console.log(err);
+        
+		    if (err.name == 'MongoError') {
+		    	res.send('User with this email is already registered!')
+		    }
+		  });
 	},
 	login: (req, res, next) => {
-  		const { username, password } = req.body;
-      	models.User.findOne({ username })
-        	.then((user) => !!user ? Promise.all([user, user.matchPassword(password)]) : [null, false])
-        	.then(([user, match]) => {
-          		if (!match) {
-            		res.status(401).send('Invalid username or password!');
-            		return;
-          		}
+  	const { username, password } = req.body;
+    models.User.findOne({ username })
+      .then((user) => !!user ? Promise.all([user, user.matchPassword(password)]) : [null, false])
+      .then(([user, match]) => {
+        if (!match) {
+          res.status(401).send('Invalid username or password!');
+          return;
+        }
 
-          		const token = jwt.createToken({ id: user._id });
-          		res.cookie('x-auth-cookie', token).send(user);
-        	})
-        	.catch(next);
+        const token = jwt.createToken({ id: user._id });
+        res.cookie('x-auth-cookie', token).send(user);
+      })
+      .catch(next);
 	},
 	logout: (req, res, next) => {
-      	const token = req.cookies['x-auth-cookie'];
-      	models.TokenBlacklist.create({ token })
-        	.then(() => {
-          		res.clearCookie('x-auth-cookie').send('Logout successfully!');
-        	})
-        	.catch(next);
-    }
+  	const token = req.cookies['x-auth-cookie'];
+  	models.TokenBlacklist.create({ token })
+    	.then(() => {
+      		res.clearCookie('x-auth-cookie').send('Logout successfully!');
+    	})
+    	.catch(next);
+  }
 }

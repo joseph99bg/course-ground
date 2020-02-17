@@ -13,15 +13,14 @@ var userSchema = new Schema({
   },
   email: {
     type: String,
-    unique: true,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
     required: true
   },
-  posts: [{ type: ObjectId, ref: 'Post' }],
-  comments: [{ type: ObjectId, ref: 'Comment' }]
+  courses: [{ type: ObjectId, ref: 'Course' }]
 });
 
 userSchema.methods = {

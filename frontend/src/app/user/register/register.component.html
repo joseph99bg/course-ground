@@ -1,3 +1,41 @@
-<div class="register-page">
+<div class="form-page">
     <h1 class="page-title">Register</h1>
+    <form #registerForm="ngForm" (ngSubmit)="registerHandler(registerForm.value)">
+        <div class="field-holder">
+            <label for="username" class="grey-color">Username</label>
+            <input type="text" #usernameInput="ngModel" ngModel name="username" id="username" required minlength="6">
+            <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)">
+                <div *ngIf="usernameInput.errors.required && usernameInput.touched" class="input-error">Please enter an username</div>
+                <div *ngIf="usernameInput.errors.minlength && usernameInput.touched" class="input-error">Username should be at least 6 chars long</div>
+            </div>
+        </div>
+        <div class="field-holder">
+            <label for="email" class="grey-color">Email</label>
+            <input type="text" #emailInput="ngModel" ngModel name="email" id="email" required minlength="6">
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)">
+                <div *ngIf="emailInput.errors.required && emailInput.touched" class="input-error">Please enter an email</div>
+                <div *ngIf="emailInput.errors.minlength && emailInput.touched" class="input-error">Email should be at least 6 chars long</div>
+            </div>
+        </div>
+        <div class="field-holder">
+            <label for="password" class="grey-color">Password</label>
+            <input type="password" #passwordInput="ngModel" ngModel name="password" id="password" required minlength="6">
+            <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)">
+                <div *ngIf="passwordInput.errors.required && passwordInput.touched" class="input-error">Please enter a password</div>
+                <div *ngIf="passwordInput.errors.minlength && passwordInput.touched" class="input-error">Password should be at least 6 chars long</div>
+            </div>
+        </div>
+        <div class="field-holder">
+            <label for="confirm-password" class="grey-color">Confirm Password</label>
+            <input type="password" #confirmPasswordInput="ngModel" ngModel name="confirm-password" id="confirm-password" required validateEqual="passwordInput">
+            <div *ngIf="confirmPasswordInput.invalid && (confirmPasswordInput.dirty || confirmPasswordInput.touched)">
+                <div *ngIf="confirmPasswordInput.errors.required && confirmPasswordInput.touched" class="input-error">Please enter a confirm password</div>
+                <div *ngIf="confirmPasswordInput.valid ||  
+                (confirmPasswordInput.pristine && !registerForm.submitted)" class="input-error">Both passwords must be the same!</div>
+            </div>
+        </div>
+        <div class="submit-btn-holder">
+            <button [disabled]="registerForm.invalid">Register</button>
+        </div>
+    </form>
 </div>
