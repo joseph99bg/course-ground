@@ -1,8 +1,7 @@
 <h1 class="page-title" *ngIf="!myCourses">Courses</h1>
 <h1 class="page-title" *ngIf="myCourses">My Courses</h1>
-<app-loader *ngIf="!courses"></app-loader>
-<div class="courses-list" *ngIf="courses">
-    <div *ngFor="let course of courses" class="course-item">
+<div class="courses-list">
+    <div *ngFor="let course of (courses$ | async)" class="course-item">
         <img [src]="course.image" alt="">
         <div class="course-info">
             <h4 class="green-color">{{course.title}}</h4>
@@ -13,7 +12,7 @@
             <button class="delete-btn" *ngIf="myCourses" (click)="deleteCourse(course._id)">
                 <fa-icon [icon]="faTrashAlt"></fa-icon>
             </button>
-            <button class="edit-btn" *ngIf="myCourses" [routerLink]="'/course/edit/'+course._id">
+            <button class="edit-btn" *ngIf="myCourses" [routerLink]="['/course/edit/', course._id]">
                 <fa-icon [icon]="faEdit"></fa-icon>
             </button>
         </div>

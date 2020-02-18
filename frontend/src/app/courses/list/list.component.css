@@ -1,7 +1,7 @@
 .course-item {
   width: calc(33.33% - 30px);
   display: inline-block;
-  margin: 0 15px;
+  margin: 15px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   border-radius: 10px;
   overflow: hidden;

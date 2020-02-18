@@ -25,7 +25,7 @@ export class UserService {
   }
 
   login(data) {
-    this.http.post<IUser>('http://localhost:8080/api/user/login', data).subscribe(user => {
+    this.http.post<IUser>('http://localhost:8080/api/user/login', data, { withCredentials: true }).subscribe(user => {
       localStorage.setItem('current-user', user.username);
       localStorage.setItem('current-user-id', user._id);
       this.currentUser = user.username;
@@ -33,7 +33,7 @@ export class UserService {
   }
 
   logout() {
-    this.http.post('http://localhost:8080/api/user/logout', null).subscribe();
+    this.http.post('http://localhost:8080/api/user/logout', null, { withCredentials: true }).subscribe();
     this.currentUser = null;
     localStorage.removeItem('current-user');
     localStorage.removeItem('current-user-id');

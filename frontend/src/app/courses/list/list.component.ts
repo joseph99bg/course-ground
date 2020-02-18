@@ -3,6 +3,7 @@ import { CoursesService } from 'src/app/courses/courses.service';
 import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -12,14 +13,13 @@ import { UserService } from 'src/app/user/user.service';
 export class ListComponent implements OnInit {
 
   myCourses = this.route.snapshot.data.myCourses;
+  coursesEnrolled = this.route.snapshot.data.coursesEnrolled;
   isLogged = this.userService.isLogged;
+
+  courses$: Observable<any[]>;
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
-
-  get courses() {
-    return this.coursesService.courses;
-  }
 
   constructor(
     private coursesService: CoursesService,
@@ -30,9 +30,11 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     if (this.myCourses) {
-      this.coursesService.loadMyCourses();
+      this.courses$ = this.coursesService.loadMyCourses();
+    } else if (this.coursesEnrolled) {
+      this.courses$ = this.coursesService.loadEnrolledCourses();
     } else {
-      this.coursesService.loadAllCourses();
+      this.courses$ = this.coursesService.loadAllCourses();
     }
   }
 

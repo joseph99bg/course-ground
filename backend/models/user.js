@@ -20,7 +20,8 @@ var userSchema = new Schema({
     type: String,
     required: true
   },
-  courses: [{ type: ObjectId, ref: 'Course' }]
+  courses: [{ type: ObjectId, ref: 'Course' }],
+  coursesEnrolled: [{ type: ObjectId, ref: 'Course' }]
 });
 
 userSchema.methods = {

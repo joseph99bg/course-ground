@@ -40,6 +40,15 @@ const routes: Routes = [
         component: ListComponent
       },
       {
+        path: 'courses-enrolled',
+        canActivate: [AuthGuard],
+        data: {
+          coursesEnrolled: true,
+          isLogged: true
+        },
+        component: ListComponent
+      },
+      {
         path: ':id',
         component: CourseDetailsComponent
       }
