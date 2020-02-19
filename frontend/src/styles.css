@@ -112,6 +112,9 @@ h1, h2, h3, h4, h5, h6 {
     width: max-content;
     bottom: -30px;
 }
+.input-error:not(:first-of-type) {
+    display: none;
+}
 .input-error:before {
     content: '';
     position: absolute;

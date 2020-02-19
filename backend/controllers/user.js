@@ -15,7 +15,8 @@ module.exports = {
     },
   },
 	register: (req, res, next) => {
-  	const { username, email, password } = req.body;
+  	const { username, email } = req.body;
+    const password = req.body.passwords.password;
   	models.User.create({ username, email, password })
 		  .then((user) => res.send(user))
 		  .catch(err => {

@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   isLogged = this.userService.isLogged;
 
   courses$: Observable<any[]>;
+  hasCourses = true;
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
@@ -31,11 +32,29 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     if (this.myCourses) {
       this.courses$ = this.coursesService.loadMyCourses();
+      this.coursesService.loadMyCourses().subscribe(courses => {
+        if (courses.length === 0) {
+          this.hasCourses = false;
+        }
+      });
     } else if (this.coursesEnrolled) {
       this.courses$ = this.coursesService.loadEnrolledCourses();
+      this.coursesService.loadEnrolledCourses().subscribe(courses => {
+        if (courses.length === 0) {
+          this.hasCourses = false;
+        }
+      });
     } else {
       this.courses$ = this.coursesService.loadAllCourses();
+      this.coursesService.loadAllCourses().subscribe(courses => {
+        if (courses.length === 0) {
+          this.hasCourses = false;
+        }
+      });
     }
+    setTimeout(() => {
+      console.log(this.hasCourses);
+    }, 3000);
   }
 
   deleteCourse(courseId) {

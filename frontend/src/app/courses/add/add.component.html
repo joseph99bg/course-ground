@@ -23,6 +23,12 @@
           <div *ngIf="imageInput.invalid && (imageInput.dirty || imageInput.touched)">
               <div *ngIf="imageInput.errors.required && imageInput.touched" class="input-error">Please enter an image url</div>
           </div>
+          <span class="uploader-button">
+            <input 
+              type="hidden"
+              role="uploadcare-uploader"
+              data-tabs="file" />
+          </span>
       </div>
       <div class="submit-btn-holder">
           <button [disabled]="addCourseForm.invalid">Add Course</button>

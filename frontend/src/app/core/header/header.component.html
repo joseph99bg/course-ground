@@ -8,10 +8,7 @@
                 <a routerLink="/user/register" routerLinkActive="active">Register</a>
             </li>
             <li *ngIf="isLogged">
-                <a><fa-icon [icon]="faUser"></fa-icon></a>
-            </li>
-            <li *ngIf="isLogged">
-                <a (click)="logout()"><fa-icon [icon]="faSignOutAlt"></fa-icon></a>
+                <a (click)="logout()">Logout</a>
             </li>
         </ul>
     </div>

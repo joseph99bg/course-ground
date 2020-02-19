@@ -40,6 +40,12 @@
     background: #FFF;
     color: #716EF9;;
 }
+.already-enrolled {
+    color: #FFF;
+    position: absolute;
+    bottom: 30px;
+    font-size: 20px;
+}
 .course-error {
     text-align: center;
     font-size: 50px;

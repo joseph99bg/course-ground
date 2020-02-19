@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ValidateEqualDirective } from './directives/validate-equal.directive';
+import { PasswordMatchDirective } from './validators/directives/password-match.directive';
 
 
 
 @NgModule({
-  declarations: [ValidateEqualDirective],
+  declarations: [PasswordMatchDirective],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PasswordMatchDirective
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,10 @@
+.contact-content {
+  padding: 0 15px;
+}
+p {
+  font-size: 20px;
+}
+.map-holder {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
