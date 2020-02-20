@@ -1,5 +1,6 @@
-<h1 class="page-title" *ngIf="!myCourses">Courses</h1>
+<h1 class="page-title" *ngIf="!myCourses && !coursesEnrolled">Courses</h1>
 <h1 class="page-title" *ngIf="myCourses">My Courses</h1>
+<h1 class="page-title" *ngIf="coursesEnrolled">Courses Enrolled</h1>
 <h3 class="purple-color" *ngIf="!hasCourses">No courses</h3>
 <div class="courses-list">
     <div *ngFor="let course of (courses$ | async)" class="course-item">

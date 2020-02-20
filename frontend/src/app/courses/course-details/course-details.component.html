@@ -4,8 +4,9 @@
     <div class="course-text">
         <h1>{{course.title}}</h1>
         <p>{{course.description}}</p>
-        <a class="enroll-course" *ngIf="!courseEnrolled" (click)="enrollCourse(course._id)">Enroll</a>
-        <span class="already-enrolled" *ngIf="courseEnrolled">You are enrolled to this course!</span>
+        <a class="enroll-course" *ngIf="!courseEnrolled && !myCourse && isLogged" (click)="enrollCourse(course._id)">Enroll</a>
+        <span class="already-enrolled" *ngIf="courseEnrolled">You are enrolled to this course</span>
+        <span class="already-enrolled" *ngIf="!isLogged">Please log in to enroll a course!</span>
     </div>
 </div>
 <div class="course-error" *ngIf="error">

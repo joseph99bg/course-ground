@@ -12,6 +12,7 @@ export class EditComponent implements OnInit {
 
   course: ICourse;
   courseId = this.route.snapshot.params.id;
+  imageUrl: string;
 
   constructor(
     private coursesService: CoursesService,
@@ -21,13 +22,21 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.coursesService.loadSingleCourse(this.courseId).subscribe(
-      res => this.course = res
+      res => {
+        this.course = res;
+        this.imageUrl = res.image;
+      }
     );
   }
 
   editCourseHandler(formData) {
-    this.coursesService.editCourse(formData, this.courseId);
+    const image = this.imageUrl;
+    this.coursesService.editCourse({...formData, image}, this.courseId);
     this.router.navigate(['/course/my-courses']);
+  }
+
+  imageUploadHandler(event) {
+    this.imageUrl = event.cdnUrl;
   }
 
 }

@@ -6,6 +6,7 @@ import { CoreModule } from '../core/core.module';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +22,8 @@ import { EditComponent } from './edit/edit.component';
     CoursesRoutingModule,
     RouterModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    UcWidgetModule
   ],
   exports: [
     ListComponent

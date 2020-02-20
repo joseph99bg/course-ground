@@ -21,10 +21,9 @@
         </div>
         <div class="field-holder">
             <label for="image" class="grey-color">Image</label>
-            <input type="text" #imageInput="ngModel" ngModel [ngModel]="course.image" name="image" id="image" required>
-            <div *ngIf="imageInput.invalid && (imageInput.dirty || imageInput.touched)">
-                <div *ngIf="imageInput.errors.required && imageInput.touched" class="input-error">Please enter an image url</div>
-            </div>
+            <img [src]="course.image" *ngIf="course.image" class="preview-image">
+            <ngx-uploadcare-widget (on-upload-complete)="imageUploadHandler($event)" images-only="true" public-key="2b9cee02e41f4b7b23fa">
+            </ngx-uploadcare-widget>
         </div>
         <div class="submit-btn-holder">
             <button [disabled]="editCourseForm.invalid">Edit Course</button>

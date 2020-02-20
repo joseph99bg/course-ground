@@ -52,9 +52,6 @@ export class ListComponent implements OnInit {
         }
       });
     }
-    setTimeout(() => {
-      console.log(this.hasCourses);
-    }, 3000);
   }
 
   deleteCourse(courseId) {

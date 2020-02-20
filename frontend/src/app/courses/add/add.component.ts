@@ -9,17 +9,24 @@ import { Router } from '@angular/router';
 })
 export class AddComponent implements OnInit {
 
+  imageUrl: string;
+
   constructor(
     private coursesService: CoursesService,
     private router: Router
-  ) { }
+  ) {  }
 
   ngOnInit() {
   }
 
   addCourseHandler(formData) {
-    this.coursesService.addCourse(formData);
+    const image = this.imageUrl;
+    this.coursesService.addCourse({...formData, image});
     this.router.navigate(['/course/my-courses']);
+  }
+
+  imageUploadHandler(event) {
+    this.imageUrl = event.cdnUrl;
   }
 
 }

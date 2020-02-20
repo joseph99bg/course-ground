@@ -4,4 +4,5 @@ export interface ICourse {
     image: string;
     description: string;
     users: [];
+    author: string;
 }
